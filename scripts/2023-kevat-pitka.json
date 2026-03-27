@@ -1,0 +1,19 @@
+{
+  "subject": "math_long",
+  "year": 2023,
+  "season": "kevät",
+  "questions": [
+    {
+      "number": 3,
+      "text": "Kymmenen metriä pitkä museoratakisko on vääntynyt lämpölaajenemisen vuoksi mutkalle, mutta sen päät ovat pysyneet paikoillaan. Kiskon poikkeama sen alkuperäisestä sijainnista kohtisuoraan mitattuna on muotoa $$f(x)=\\frac{x^3-15x^2+50x}{1000}$$ kun $$x$$ on etäisyys kiskon alkupäästä. Missä kohdissa kiskon poikkeama sen alkuperäisestä asemasta on suurin? Määritä myös suurin poikkeama. Muuttujan $$x$$ ja poikkeaman yksikkönä on metri.",
+      "max_points": 12,
+      "model_answer": "Laskettu funktion derivaatta $$f'(x)=\\frac{1}{1000}(3x^2-30x+50)$$. Derivaatan nollakohdat $$x=5\\pm\\frac{5}{\\sqrt{3}}$$. Todettu että suurimmat poikkeamat ovat derivaatan nollakohdissa. Vertailtu poikkeamia derivaatan nollakohdissa, jotka ovat välillä ]0, 10[. Annettu vastaukset likiarvoina 2,11 m ja 7,89 m ja poikkeama 0,048 m."
+    },
+    {
+      "number": 6,
+      "text": "Erään raketin kärki, eli niin sanottu nokkakartio, saadaan, kun alaspäin aukeava paraabeli pyörähtää symmetria-akselinsa ympäri. Kärjen korkeus on 4,5 metriä, ja sen halkaisija pohjan tasolla on 3,3 metriä. Määritä kärjen tilavuus.",
+      "max_points": 12,
+      "model_answer": "Mallinnetaan poikkileikkausparaabeli. Nollakohdat ovat pisteissä $$x=\\pm 1,65$$. Paraabelin yhtälö on $$y=a(x-1,65)(x+1,65)$$. Korkeus saadaan yhtälöstä $$4,5=-a \\cdot 1,65^2$$ josta $$a=-\\frac{200}{121}$$. Paraabeliksi saadaan $$y=-\\frac{200}{121}x^2+4,5$$. Tilavuus saadaan pyörähdyskappaleen integraalina $$\\pi \\int_0^{4,5} (-\\frac{1,65^2}{4,5}y+1,65^2) dy \\approx 19$$ kuutiometriä."
+    }
+  ]
+}

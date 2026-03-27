@@ -1,0 +1,25 @@
+{
+  "subject": "math_long",
+  "year": 2023,
+  "season": "kevät",
+  "questions": [
+    {
+      "number": 1,
+      "text": "Ratkaise yhtälö $$x^2 - 5x + 6 = 0$$. Perustele kaikki vaiheet.",
+      "max_points": 6,
+      "model_answer": "Yhtälö $x^2 - 5x + 6 = 0$ ratkaistaan toisen asteen yhtälön ratkaisukaavalla:\n$x = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$. Näin ollen juuret ovat $x = 3$ ja $x = 2$."
+    },
+    {
+      "number": 2,
+      "text": "Osoita, että funktio $f(x) = x^3 - 3x + 1$ on aidosti kasvava välillä $[1, \\infty)$.",
+      "max_points": 6,
+      "model_answer": "Derivaatta $f'(x) = 3x^2 - 3$. Kun $x \\ge 1$, niin $x^2 \\ge 1$, joten $3x^2 \\ge 3$ ja siten $f'(x) \\ge 0$. Koska derivaatta on jatkuvasti ei-negatiivinen ja nolla pisteessä $x=1$, funktio on aidosti kasvava välillä $[1, \\infty)$."
+    },
+    {
+      "number": 3,
+      "text": "Laske integraali $$\\int_0^1 (e^x + x) dx$$.",
+      "max_points": 6,
+      "model_answer": "Integraalifunktio on $F(x) = e^x + \\frac{1}{2}x^2$. Sijoitetaan rajat:\n$F(1) - F(0) = (e^1 + \\frac{1}{2} \\cdot 1^2) - (e^0 + 0) = e + \\frac{1}{2} - 1 = e - \\frac{1}{2}$."
+    }
+  ]
+}

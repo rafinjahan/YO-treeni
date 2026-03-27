@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YO-Treeni Deployment & Configuration
 
-## Getting Started
+This guide provides step-by-step instructions to take the YO-Treeni MVP from local development to a live Vercel production environment with full Google Authentication.
 
-First, run the development server:
+## 1. Configuring Google OAuth (Supabase)
+To allow students to log in with their Google accounts:
+1. Go to your **Supabase Project Dashboard** -> **Authentication** -> **Providers**.
+2. Enable **Google**.
+3. You will need a **Client ID** and **Client Secret** from the [Google Cloud Console](https://console.cloud.google.com/).
+4. In Google Cloud, set the **Authorized Redirect URI** exactly to your Supabase callback:
+   `https://[YOUR_SUPABASE_PROJECT_REF].supabase.co/auth/v1/callback`
+5. Back in Supabase **Authentication** -> **URL Configuration**, add your live Vercel domain to the **Redirect URLs** list (e.g., `https://my-yotreeni.vercel.app/**`).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 2. Deploying to Vercel
+Since this is a standard Next.js 14 project, Vercel will auto-detect everything.
+1. Create a GitHub repository and push your local code.
+2. Go to [Vercel](https://vercel.com/) and click **Add New Project**.
+3. Import your GitHub repository.
+4. **Environment Variables**: You MUST copy all values from your `.env.local` file and paste them into the Vercel deployment settings BEFORE clicking Deploy!
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `OPENAI_API_KEY`
+   - `OPENAI_BASE_URL`
+   - `OPENAI_MODEL`
+5. Click **Deploy**. Vercel will output a default `.vercel.app` domain.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 3. Custom Domain Setup
+When you are ready to use a custom `.fi` domain:
+1. In your Vercel Project Dashboard, click **Settings** -> **Domains**.
+2. Type in your registered domain name (e.g. `yotreeni.fi`) and click Add.
+3. Vercel will provide you with DNS Records (usually an `A` record pointing to `76.76.21.21`).
+4. Log into your domain registrar and paste the DNS records into their management portal.
+5. Vercel will automatically configure a free SSL certificate once the domain matches!
