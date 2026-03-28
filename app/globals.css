@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --animate-blob: blob 7s infinite;
+}
 
 :root {
   --background: #f8fafc;
@@ -16,13 +18,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
+/* Explicit Animation classes bypassing the deprecated v3 @layer utility injects */
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
 }
 
 @keyframes blob {
